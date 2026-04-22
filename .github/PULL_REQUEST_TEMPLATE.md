@@ -1,3 +1,9 @@
+<!-- PR 前请确认:
+  1. 分支名格式: feat/<issue号>-xxx 或 fix/<issue号>-xxx
+  2. 基于最新的 main 拉的分支
+  3. 代码放在了对应的子目录(benchmarks/infra/tools/experiments/shared)
+-->
+
 Closes #
 
 ## 做了什么
@@ -16,6 +22,10 @@ Closes #
 ```
 # 运行命令示例
 ```
+
+## 代码位置
+<!-- 放在哪个子目录?为什么? -->
+
 
 ## 其他说明
 <!-- 取舍、遗留问题、后续可优化点 -->
