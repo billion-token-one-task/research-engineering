@@ -17,17 +17,42 @@
 
 ### 研究者（提需求）
 
-1. 点 [New Issue](../../issues/new/choose)
-2. 选 "研究工程任务" 模板
-3. 按模板填完发出来
-4. 如果 72 小时没人认领，在 issue 里 @维护者
+1. 点 [New Issue](../../issues/new/choose)，选 "研究工程任务" 模板
+2. 按模板填完发出来
+3. 如果 72 小时没人认领，在 issue 里 @维护者
 
-### 工程贡献者（领任务）
+### 工程贡献者（领任务 + 交付）
 
-1. 浏览 [open issues](../../issues)，特别看 `good first issue` / `help wanted` 标签
-2. 找到想做的，在 issue 下评论 `/claim` 或 "我来做这个"
-3. fork → 开分支 → 写代码 → 发 PR，PR 描述里 `Closes #issue_number`
-4. 维护者 review 后合并
+完整工作流：
+
+```
+1. 浏览 Issues,看到合适的 → 评论 "我来做这个"
+2. Fork 本仓库到你自己账号
+3. clone 你的 fork,建分支:
+     git checkout -b feat/42-short-description   # 42 替换成 issue 号
+4. 在对应子目录里写代码(见下面「代码组织」)
+5. commit 并 push 到你的 fork
+6. 在 GitHub 上发起 PR:你的 fork:feat/42-xxx  →  本仓库:main
+7. PR 描述第一行写 "Closes #42"  ← 这会自动关联并在合并时关闭 issue
+8. 维护者 review 合并
+```
+
+**分支命名**：`feat/<issue号>-<短描述>` 或 `fix/<issue号>-<短描述>`
+**PR 关联 issue**：在 PR 描述里写 `Closes #42` / `Fixes #42` / `Resolves #42` 三者任一
+
+## 代码组织
+
+所有代码都提到 `main` 分支（通过 PR）。根据任务类型放到对应子目录：
+
+| 目录 | 放什么 |
+|---|---|
+| [`benchmarks/`](./benchmarks) | 测评/跑分/性能对比脚本 |
+| [`infra/`](./infra) | 基础设施：CI、部署、wandb 集成、监控 |
+| [`tools/`](./tools) | CLI / 可视化 / dashboard / 数据工具 |
+| [`experiments/`](./experiments) | 一次性实验脚本（不长期维护） |
+| [`shared/`](./shared) | 跨任务共享的工具库（配置/日志/常用 utils） |
+
+不确定放哪个目录？在 issue 里问维护者或任意标注，review 时会告诉你。
 
 ## 任务难度标签
 
